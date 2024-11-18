@@ -1,103 +1,209 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* Resetando algumas configurações básicas */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-   }
-   #app {
-    max-width: 1024px;
-    margin: 20px auto;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container principal do site */
+#app {
+    max-width: 1200px;
+    margin: 40px auto;
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   }
-
-form {
- padding: 20px;
- border-radius: 8px;
- box-shadow: 0 0 10px rgba(0, 0,
-0, 0.2);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
+
+/* Cabeçalho */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+header nav ul li {
+    font-size: 1.1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #4CAF50;
+}
+
+/* Títulos principais */
 h1 {
- color: #333;
- text-align: center;
+    color: #333;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-#add-user-form {
+/* Formulários */
+form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
-   }
-label {
-    margin-bottom: 5px;
-    color: #555;
+    gap: 15px;
+    margin-bottom: 40px;
 }
 
-input {
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
 }
+
+input, textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Botões */
 button {
-    padding: 10px;
+    padding: 12px 20px;
     background-color: #4CAF50;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+button:focus {
+    outline: none;
 }
+
+/* Lista de Usuários e Produtos */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Grid responsiva de cards */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 10px;
-    padding: 20px;
-}
-.space {
-    padding: 5px 0;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
 }
 
+/* Estilo para cada card */
 .card {
     background-color: #fff;
-    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    align-content: space-around;
     justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.space {
-    padding: 5px 0;
-   }
-   strong {
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Detalhes do produto ou usuário */
+.card div {
+    margin-bottom: 10px;
+}
+
+.card strong {
+    font-weight: 700;
     color: #333;
 }
 
+.card img {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Botões de remoção com ícones */
 button.remove-btn {
+    padding: 8px 16px;
     background-color: #d9534f;
     color: #fff;
     border: none;
-    border-radius: 4px;
-    padding: 8px;
+    border-radius: 6px;
     cursor: pointer;
-   }
-   button.remove-btn:hover {
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+button.remove-btn:hover {
     background-color: #c9302c;
+}
+
+button.remove-btn i {
+    margin-right: 8px;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        margin-bottom: 30px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .card {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
 }
